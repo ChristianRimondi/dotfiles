@@ -7,13 +7,35 @@ alias v="$VISUAL"
 
 # Bundler
 alias b="bundle"
+alias be="bundle exec"
 
 # Rails
 alias migrate="rake db:migrate db:rollback && rake db:migrate db:test:prepare"
 alias s="rspec"
 
+# Git
+alias git=hub
+
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
+
+# Projects
+alias floyd='cd ~/Code/floyd'
+alias bridge='cd ~/Code/bridge'
+
+# Dru
+alias up="dru up -d && dru attach app"
+alias down="dru down"
+dsstart() {
+  docker-sync start -c ~/Code/docker-projects/${PWD##*/}/docker-sync.yml --dir ~/Code/docker-projects/${PWD##*/}/.docker-sync
+}
+dsstop() {
+  docker-sync stop -c ~/Code/docker-projects/${PWD##*/}/docker-sync.yml --dir ~/Code/docker-projects/${PWD##*/}/.docker-sync
+}
+bo() {
+  gempath=`dru do "bundle show $1"`
+  $BUNDLER_EDITOR ~/.gems/$gempath
+}
 
 # Include custom aliases
 [[ -f ~/.aliases.local ]] && source ~/.aliases.local

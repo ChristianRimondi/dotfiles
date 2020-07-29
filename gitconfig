@@ -12,6 +12,18 @@
   co = checkout
   pf = push --force-with-lease
   st = status
+  ca = commit --amend
+  cane = commit --amend --no-edit
+  cf = commit --fixup
+  r = rebase
+  ri = rebase -i
+  rid = rebase --ignore-date
+  b = branch -vv
+  rh = reset HEAD
+  l = log --oneline
+  s = stash
+  sp = stash pop
+  sl = stash list
 [core]
   excludesfile = ~/.gitignore
   autocrlf = input
@@ -27,3 +39,12 @@
   path = ~/.gitconfig.local
 [diff]
   colorMoved = zebra
+[user]
+  email = christian.rimondi@gmail.com
+  name = Christian Rimondi
+  signingkey = 599653EA33FF66B0
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

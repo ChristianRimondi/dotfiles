@@ -46,3 +46,5 @@ _load_settings "$HOME/.zsh/configs"
 
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
+
+export PATH="$HOME/.bin:/usr/local/Caskroom/android-sdk/4333796/platform-tools:$PATH"

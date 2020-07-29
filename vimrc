@@ -1,5 +1,6 @@
 " Leader
-let mapleader = " "
+let mapleader = ","
+let maplocalleader = " "
 
 set backspace=2   " Backspace deletes like most programs in insert mode
 set nobackup
@@ -93,6 +94,7 @@ endif
 " Make it obvious where 80 characters is
 set textwidth=80
 set colorcolumn=+1
+set nowrap
 
 " Numbers
 set number
@@ -115,12 +117,15 @@ inoremap <S-Tab> <C-n>
 
 " Switch between the last two files
 nnoremap <Leader><Leader> <C-^>
+nnoremap <localleader>- :bp<CR>:bd #<CR>
+nnoremap <localleader>-- :bp<CR>:bd! #<CR>
+nnoremap <localleader><localleader> :b#<CR>
 
 " Get off my lawn
-nnoremap <Left> :echoe "Use h"<CR>
-nnoremap <Right> :echoe "Use l"<CR>
-nnoremap <Up> :echoe "Use k"<CR>
-nnoremap <Down> :echoe "Use j"<CR>
+"nnoremap <Left> :echoe "Use h"<CR>
+"nnoremap <Right> :echoe "Use l"<CR>
+"nnoremap <Up> :echoe "Use k"<CR>
+"nnoremap <Down> :echoe "Use j"<CR>
 
 " vim-test mappings
 nnoremap <silent> <Leader>t :TestFile<CR>
